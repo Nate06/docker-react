@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t yhy2008/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run yhy2008/docker-react npm run test -- --coverage
+
